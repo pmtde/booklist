@@ -1,0 +1,21 @@
+.form-group {
+  margin: 15px 0 10px 0;
+}
+
+.btn {
+  margin: 5px 0 20px 0;
+}
+
+.alert {
+  margin: 10px;
+  text-align: center;
+  color: white;
+}
+
+.success {
+  background-color: green;
+}
+
+.failed {
+  background-color: red;
+}
