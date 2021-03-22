@@ -38,15 +38,17 @@ class UI {
 
     if (className === 'success') {
     msg.className = 'alert success';
-    } else {
+    } else if (className === 'failed'){
     msg.className = 'alert failed';
+    } else {
+    msg.className = 'alert info';
     }
 
     document.querySelector('.container').insertBefore(msg, document.querySelector('.display-3'));
 
     setTimeout(function(){
     document.querySelector('.alert').remove();
-    }, 3000);
+    }, 2000);
   }
 }
 
@@ -125,7 +127,49 @@ document.querySelector('.book-list').addEventListener('click', function(e) {
   const ui = new UI();
   ui.removeBookFromList(e.target);
   Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
-  ui.showAlert('success', 'Book is successfully removed.')
+  ui.showAlert('info', 'Book is successfully removed.')
 
   e.preventDefault();
 });
+
+
+// var updateBtns = document.getElementsByClassName('update-book')
+
+// for (i = 0; i < updateBtns.length; i++) {
+// 	updateBtns[i].addEventListener('click', function(){
+// 		var title = this.dataset.title
+// 		var author = this.dataset.author
+//     var isbn = this.dataset.isbn
+//     var action = this.dataset.action
+
+// 		console.log('title:', title, 'author:', author, 'isbn:', isbn, 'action:',action )
+
+//     if (user === 'AnonymousUser'){
+// 			  console.log('User anonymous')
+// 		}else{
+//         updateUserBook(title, author, isbn, action)
+//     }
+// 	})
+// }
+
+// function updateUserBook(title, author, isbn, action){
+
+//     var url = '/update_book/'
+
+//     fetch(url, {
+//       headers:{
+//         method:'POST',
+//         headers:{
+//           'Content-Type': 'application/json',
+//           // 'X-CSRFToken':csrftoken,
+//         },
+
+//         body:JSON.stringify({'title': title, 'author:': author,'isbn': isbn, 'action':action})
+//       }
+//     })
+
+//     .then((response) =>{
+//       return response.json()
+//     })
+
+// }

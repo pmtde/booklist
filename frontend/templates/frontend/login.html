@@ -1,0 +1,40 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="container">
+        <div class="box-element login">
+            <div class="login-inputs">
+                <img src="{% static 'images/avatar1.png' %}" class="avatar">
+                <br><br><br>
+                <h1>LOGIN</h1>
+                {% for message in messages %}
+                    <p id="messages">{{ message }}</p>
+                {% endfor %}
+                <div class="login-input">
+                    <label>Username</label>
+                    <input name="username" placeholder="Username" type="name" required>
+                </div>
+                <div class="login-input">
+                    <label>Password</label>
+                    <input name="password" placeholder="********" type="password" required>
+                </div>
+                {{ form.errors }}
+                <div class="forget">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <hr>
+                <input class="btn-login" style="padding:10px 25px; margin-left:10px" type="submit" placeholder="LOGIN">
+                <br><br>
+                <span>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></span>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+
+</script>
+
+{% endblock content %}
